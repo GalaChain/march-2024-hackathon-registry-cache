@@ -9,14 +9,14 @@ Below are instructions, NPM is the same on all environments but docker will be d
 To use the local registry just run the below command.
 
 ```sh
-    npm set registry http://localhost:4873
+    npm set registry http://172.23.0.79:4873
 
 ```
 
 To remove the registry after the hackathon run this.
 
 ```sh
-    npm config delete registry http://localhost:4873
+    npm config delete registry http://172.23.0.79:4873
 
 ```
 
@@ -46,7 +46,7 @@ sudo nano /etc/docker/daemon.json
 
 ```json
 {
-  "registry-mirrors": ["http://192.168.1.50:5000"]
+  "registry-mirrors": ["http://172.23.0.79:5000"]
 }
 ```
 
