@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  npm-registry:
+    image: verdaccio/verdaccio:latest
+    container_name: npm-registry
+    ports:
+      - "4873:4873" # Change the host port as needed
+    restart: always
+    networks:
+      - registry-network
+    volumes:
+      - ./verdaccio:/verdaccio/storage # Persist data if needed
+
+  docker-registry:
+    image: registry:latest
+    container_name: docker-registry
+    ports:
+      - "5000:5000" # Change the host port as needed
+    restart: always
+    networks:
+      - registry-network
+    volumes:
+      - ./registry-data:/var/lib/registry # Persist data if needed
+
+networks:
+  registry-network:
+    driver: bridge
